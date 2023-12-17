@@ -98,8 +98,8 @@ ol[role='list'] {
 
 /* Set core body defaults */
 body {
-    height: 100vh;
-    overflow-x: hidden;
+    overflow-x: clip;
+    min-height: 100vh;
     line-height: 1.5;
 }
 
@@ -247,15 +247,10 @@ body {
 }
 
 .main-section,
-.mid-section,
-.primary-footer,
-.cta {
-
-    /* he added an extra calculation of min between the width and the max-width */
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+.mid-section {
+    width: 80%;
     padding: var(--size-400);
+    margin-inline: auto;
     /* i think margin inline is gogod becuase if you flip the phone or sth */
 }
 
@@ -293,6 +288,8 @@ wihch annoys me a bit but i aint going to clean too much hassle */
     gap: 1rem;
     position: relative;
     isolation: isolate;
+    width: 100%;
+    padding: var(--size-600);
     /* i used to put here align items but it broke because the cta was changing */
     /* display type so i put it back in the media query so after changing the type from  */
     /* flex to grid i gotta align the items so putting the aligning of items here doesnt matter because */
@@ -344,13 +341,16 @@ p:not([class]) {
         display: grid;
         text-align: left;
         align-items: start;
+        gap: 2rem;
         justify-content: end;
         grid-auto-columns: 1fr;
         grid-auto-flow: column;
     }
 
+
     .even-columns p {
         margin-inline: 0;
+        text-wrap: wrap;
     }
 
     .cta p {
@@ -399,11 +399,12 @@ p:not([class]) {
 /* header configurations for lower and higher screen sizes */
 
 header {
+    width: 80%;
+    margin-inline: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: var(--size-600);
-    margin: auto;
 }
 
 header button {
@@ -435,6 +436,7 @@ header .mobile-nav-toggle {
     position: relative;
     grid-template-columns: 1fr 3fr 2fr;
     display: grid;
+    width: 100%;
     gap: 2rem;
     padding: var(--size-900);
     text-align: left;
@@ -657,6 +659,7 @@ header .mobile-nav-toggle {
     gap: 2rem;
     align-content: center;
     text-align: center;
+    margin-block: 2rem;
 }
 
 @media (max-width:30em) {
@@ -705,12 +708,12 @@ header .mobile-nav-toggle {
         padding: var(--size-700);
     }
 
-    /*
-    header::after {
-        content: "";
-        position: absolute;
-        inset: -5px;
-        /* control the spread */
+
+    /* .primar::after { */
+    /* content: ""; */
+    /* position: absolute; */
+    /* inset: -5px; */
+    /* control the spread */
     /* transform: translate(10px, 8px); */
     /* control the offsets */
     /* z-index: -1; */
@@ -719,8 +722,9 @@ header .mobile-nav-toggle {
     /* your gradient here */
     /* filter: blur(10px); */
     /* control the blur */
-
+    /*  */
     /* } */
+
     .primary-navigation ul {
         display: grid;
         justify-content: center;
@@ -741,12 +745,11 @@ header .mobile-nav-toggle {
 .with-background-image::before {
     content: "";
     position: absolute;
-    top: -10%;
+    top: -20%;
     right: -5%;
     width: 50%;
-    height: auto;
+    height: 100%;
     z-index: -1;
-    aspect-ratio: 1/1.2;
     background-size: contain;
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="814" height="814"><rect width="436" height="970" x="774" y="-62" fill="%23FFF0EC" fill-rule="evenodd" rx="218" transform="rotate(45 718.814 -291.157)"/></svg>');
     background-position: top right;
@@ -763,6 +766,7 @@ header .mobile-nav-toggle {
     left: -30%;
     width: 50%;
     height: auto;
+
     z-index: -1;
     aspect-ratio: 1/1.2;
     background-size: contain;
@@ -774,20 +778,28 @@ header .mobile-nav-toggle {
 
 @media (min-width:1400px) {
     .with-background-image::before {
-        top: -20%;
+        top: -35%;
         right: -5%;
+        height: 100%;
     }
 }
 
 @media (max-width: 50em) {
     .with-background-image::before {
         width: 100%;
-        top: -5%;
-        right: -15%;
+        top: -15%;
+        right: -12%;
     }
 
     .second-blob::after {
-        left: 80%;
+        left: 75%;
         top: 95%;
+    }
+}
+
+@media (max-width:450px) {
+    .with-background-image::before {
+        top: -10%;
+        right: -20%;
     }
 }
