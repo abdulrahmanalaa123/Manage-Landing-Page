@@ -100,8 +100,8 @@ ol[role='list'] {
 body {
     min-height: 100vh;
     line-height: 1.5;
-    overflow-x: clip;
-
+    width: 100%;
+    clip-path: inset(0 0 0 0);
 }
 
 /* Set shorter line heights on headings and interactive elements */
