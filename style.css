@@ -98,9 +98,10 @@ ol[role='list'] {
 
 /* Set core body defaults */
 body {
-    overflow-x: clip;
     min-height: 100vh;
     line-height: 1.5;
+    overflow-x: clip;
+
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -244,6 +245,7 @@ body {
     font-size: var(--fs-body);
     font-family: var(--ff-family);
     color: var(--clr-primary-400);
+
 }
 
 .main-section,
@@ -251,6 +253,7 @@ body {
     width: 80%;
     padding: var(--size-400);
     margin-inline: auto;
+
     /* i think margin inline is gogod becuase if you flip the phone or sth */
 }
 
@@ -273,6 +276,7 @@ wihch annoys me a bit but i aint going to clean too much hassle */
     align-items: center;
     text-align: center;
     justify-content: center;
+
 }
 
 .main-section p,
@@ -682,6 +686,7 @@ header .mobile-nav-toggle {
 @media (max-width:50em) {
     header {
         padding: var(--size-600);
+        width: 100%;
     }
 
     .primary-navigation,
@@ -742,8 +747,8 @@ header .mobile-nav-toggle {
 
 /* background image */
 
-
 .with-background-image::before {
+
     content: "";
     position: absolute;
     top: -20%;
@@ -767,7 +772,6 @@ header .mobile-nav-toggle {
     left: -30%;
     width: 50%;
     height: auto;
-
     z-index: -1;
     aspect-ratio: 1/1.2;
     background-size: contain;
